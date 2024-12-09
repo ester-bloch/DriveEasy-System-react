@@ -1,8 +1,12 @@
+import { json } from "react-router"
 
-export const LOGINThidUser = (user) => {
-    console.log('register לאקשן נכנסתי ------------')
+export const LoginThisUser = (user) => {
+    console.log('reLOGINThidUsergister לאקשן נכנסתי ------------')
+    console.log(`user:${JSON.stringify(user)}`)
+    console.log(`user.name:${user.name}`)
     return { type: 'LOGIN', payload: user }
 }
+
 export const addUser = (user) => {
     console.log('register לאקשן נכנסתי ------------')
     return { type: 'ADD_USER', payload: user }

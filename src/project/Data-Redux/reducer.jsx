@@ -59,7 +59,9 @@ export const reducer = produce((state, action) => {
         }
         case "SET_CURRENT_CAR":{
             state.currentCar =action. payload
+            console.log(`from reducer2: isManager:${state.isManager}`);
             break;
         }
+    
     }
 }, InitialState)

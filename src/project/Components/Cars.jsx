@@ -42,7 +42,6 @@ export const Cars = () => {
                 // x.data -  הנתונים שנשלפו - התגובה מהשרת
                 setCars(x.data)
                 setCarsToShow(x.data)
-                console.log(cars);
                 for (let i = 0; i < cars.length; i++) {
                     if (cars[i] == null || cars[i] == undefined)
                         cars.splice(i, 1)
