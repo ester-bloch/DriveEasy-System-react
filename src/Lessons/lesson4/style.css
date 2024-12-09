@@ -1,0 +1,31 @@
+.hello {
+    font-size: 80px;
+    color: salmon;
+    font-style: bold;
+}
+
+.big {
+    font-size: 80px;
+    color: rgb(232, 148, 23);
+    font-style: bold;
+}
+
+.small {
+    font-size: 20px;
+    color: rgb(13, 158, 120);
+    font-style: italic;
+}
+
+.img {
+    width: 30vw;
+    height: auto;
+    margin: 2vw;
+}
+
+.album {
+    padding: 5vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}

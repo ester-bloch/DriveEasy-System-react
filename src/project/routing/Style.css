@@ -1,0 +1,120 @@
+p {
+    font-family: 'Segoe UI', 'Belanosima', sans-serif;
+    /* color: aquamarine; */
+    color: #282830;
+    /* color: rgb(3, 129, 9); */
+}
+
+
+
+#OneCar {
+    margin: 20px;
+    padding: 15px;
+    direction: rtl;
+    border: 1.5px solid rgb(189, 207, 221);
+    border-radius: 20px;
+    width: 200px;
+    justify-content: right;
+    align-items: start;
+    font-size: larger;
+    cursor: grab;
+    
+}
+ 
+.forImg{
+    width: 200px;
+    height: 100px;
+}
+img {
+    width: 100%;
+    height: 100%;
+}
+
+#cars {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* border: 1.5px solid rgb(160, 216, 255); */
+    direction: rtl;
+    justify-content: right;
+    align-items: center;
+}
+
+#UserAside {
+
+    width: fit-content;
+    justify-content: right;
+    align-items: center;
+
+}
+.IsEmpty{
+    width: 60px;
+}
+.white{
+    color: #484849;
+    /* color: cornsilk; */
+    
+
+}
+.Nav {
+    border: 1.5px solid rgb(189, 207, 221);
+
+    background-color: #484849;
+    height: 2rem;
+    padding: 2rem 0;
+}
+h4{
+    color: rgb(3, 129, 9);
+}
+.link {
+    color: rgb(85, 196, 159);
+    margin: 0 2rem;
+    text-decoration: none;
+}
+
+.active {
+    color: rgb(3, 129, 9);
+}
+.un {
+    color: rgb(219, 96, 176);
+}
+
+h5 {
+    font-family: 'Segoe UI', 'Belanosima', sans-serif;
+    color: rgb(3, 129, 9);
+    color: rgb(85, 196, 159);
+}
+
+div {
+    align-items: center;
+}
+
+select, button {
+    width: 230px;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    border: 1.5px solid rgb(160, 216, 255);
+    background-color: rgb(219, 233, 239);
+    font-family: 'Segoe UI', 'Belanosima', sans-serif;
+    cursor: pointer;
+    align-items: center;
+    justify-content: left;
+}
+body{
+    /* background-color: #282830; */
+    background-color: #e2e2ec
+}
+input {
+    border: 1.5px solid rgb(160, 216, 255);
+    width: 200px;
+    height: 20px;
+    align-items: center;
+    justify-content: left;
+    border-radius: 5px;
+}
+
+.Hebrew {
+    justify-content: right;
+}

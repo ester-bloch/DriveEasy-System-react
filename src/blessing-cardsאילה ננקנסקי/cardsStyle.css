@@ -1,0 +1,39 @@
+.Shabbat{
+    width:max-content;
+    padding:2vw;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(252, 193, 0);
+    border-radius: 10px;
+    margin: 2vw;
+    font-size: larger;
+    color:rgb(252, 193, 0);
+}
+.newBorn{ 
+    padding:2vw;
+    width:max-content;
+    border-style: solid;
+    border-width: 2px;
+    border-color:rgba(255, 5, 101, 0.758);
+    border-radius: 10px;
+    margin: 2vw;
+    text-align: end;
+    font-size: small;
+    color:rgba(255, 5, 101, 0.758);
+}
+.birthday{
+    padding:2vw;
+    width:max-content;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(5, 180, 153, 0.758);
+    border-radius: 10px;
+    margin: 2vw;
+    text-align: center;
+    font-size: xx-large;
+    color:rgba(5, 180, 153, 0.758);
+}
+.carsdImageClass{
+    width: 10vw;
+    border-radius: 15px;
+}

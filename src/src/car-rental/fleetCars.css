@@ -1,0 +1,188 @@
+#carDiv{
+    min-height: 100vh;
+    height: 100vh;
+}
+.cardDiv1{
+    background-color: black; 
+    margin: 3%;
+    border-radius: 10px;
+    padding: 2%;
+    border: solid white 2px;
+    height: 50vh;
+    padding-bottom: -50px;
+    width: 25%;
+    
+} 
+
+#fleetCars div #imgcar{
+    width: 20vw;
+}
+#fleetCars div p{
+    background-color: black;
+    color: white; 
+    text-align: center;
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.pach{
+    width: 10%;
+    margin-right: 70%;
+    height:auto;
+
+    /* background-color: #e8e7e7; */
+}
+#fleetCars{
+    width: 100%;
+    margin-top: 0%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.imgf{
+    width: 100%;
+    height: 700px;
+}
+#rentCar{
+    width: 25vw;
+    margin-right: -10%;
+    margin-bottom: 5vh;
+    font-size: x-large;
+}
+#divImgCar{
+    width: 100%;
+    height: 70%;
+    display: flex;
+   flex-wrap: wrap;
+}
+#filter{
+    margin-top: 0%;
+}
+
+.available{
+    width: 20%;
+    height: 4vh;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+}
+.select{
+    
+    height: 50px;
+    background-color: antiquewhite;
+    border: 2px solid #ccc; /* מסגרת מסביב */
+    border-radius: 2px; /* פינות מעוגלות */
+    padding: 8px; /* רווח פנימי */
+    background-position: left 10px center; /* מיקום החץ */
+    background-size: 20px; /* גודל החץ */
+    width: 250px;
+    margin-top: 300px;
+    text-align: center;    
+    font-size: 15px;
+    appearance: none; /* הסרת סגנון ברירת מחדל */
+    margin-right:3px;
+}
+.selectReset{    
+    width:5%;
+    height:100%;
+    text-align: center;
+    margin-top:100px;
+    /* font-size: 15px; */
+    appearance: none;
+    margin-right:3px;
+}
+.selectReset img{
+    width:100%;
+    height: 100%;
+}
+.select:focus {
+    outline: none; /* הסרת הקו המוקף כאשר מרוכז */
+    border-color: #1919ae; /* שינוי צבע מסגרת בריכוז */
+    box-shadow: 0 0 5px rgba(80, 119, 248, 0.5); /* הוספת צל */
+}
+.a1{
+    background-color: rgb(246, 162, 162);
+    color: rgb(68, 3, 3);
+}
+.a2{
+    background-color: rgb(227,251,227);
+    color: rgb(10,71,10);
+}
+.imgf {
+    width: 100%;
+    height: 700px;
+}
+.filtert {
+    position: absolute;
+    top: 20px; 
+    /* right: 20px;  */
+    z-index: 10;
+    width:100%;
+    display: flex;
+    justify-content: space-around;}
+#rentCar{
+    margin-right: -10%; 
+    margin-top: 3vh;
+    width: 25vw;
+    font-size: x-large;
+    margin-bottom: 0;
+    border-radius: 10px;
+}
+.icon{
+    width:20%;
+    margin-left: 5%;
+}
+#picAndDesc{
+    display: flex;
+    width:100%;
+    margin-top: 0;
+}
+#plus{
+    position: absolute;
+    width:10%;
+    height: auto;
+    right: 85%;
+    top: 105vh;
+}
+.love {
+    font-size: 16px;
+    background-color: #1f2121;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+    color: white;
+}
+
+.l {
+
+    padding: 20px;
+    background-color: #2e3030;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.l p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.l input {
+    width: 20%;
+    padding: 8px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.l button {
+    padding: 10px 20px;
+    background-color: #1a085f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.l button:hover {
+    background-color: #17c49b;
+}

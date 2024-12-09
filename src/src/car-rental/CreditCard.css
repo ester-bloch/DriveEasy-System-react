@@ -1,0 +1,509 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700|Source+Sans+Pro:400,600,700&display=swap");
+
+.card-form * {
+  box-sizing: border-box;
+  outline: none;
+}
+
+.card-form {
+  direction: ltr;
+  background: #ddeefc;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+}
+
+.card-form {
+  max-width: 570px;
+  min-width: 490px;
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 70px;
+  width: 100%;
+}
+
+.card-form .card-inputs {
+  background: #fff;
+  box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);
+  border-radius: 10px;
+  padding-top: 150px;
+}
+
+.card-form form {
+  margin: 0 auto;
+  padding: 35px;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: 1fr 2fr 1fr;
+  width: 100%;
+}
+
+.card-form .lg-input {
+  grid-column: 1 / 4;
+}
+
+.card-form .med-input {
+  grid-column: 1 / 3;
+}
+
+.card-form .sm-input {
+  grid-column: 3 / 4;
+}
+
+.card-form label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #1a3b5d;
+  width: 100%;
+  user-select: none;
+}
+
+.card-form .name-input,
+.card-form .number-input,
+.card-form .cvv-input {
+  width: 100%;
+}
+
+.card-form .month-input,
+.card-form .year-input {
+  width: 44%;
+  margin-right: 15px;
+}
+
+.card-form input,
+.card-form select {
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #ced6e0;
+  box-shadow: none;
+  font-size: 18px;
+  padding: 5px 15px;
+  background: none;
+  color: #1a3b5d;
+  font-family: "Source Sans Pro", sans-serif;
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 1px;
+}
+
+.card-form input:hover,
+.card-form input:focus,
+.card-form select:hover,
+.card-form select:focus {
+  border-color: #3d9cff;
+}
+
+.card-form input:focus,
+.card-form select:focus {
+  box-shadow: 0px 10px 20px -13px rgba(32, 56, 117, 0.35);
+}
+
+.card-form select {
+  -webkit-appearance: none;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQI12NgYGBgAAAABQABXvMqOgAAAABJRU5ErkJggg==");
+  background-size: 12px;
+  background-position: 90% center;
+  background-repeat: no-repeat;
+  padding-right: 30px;
+}
+
+.card-form button {
+  height: 55px;
+  background: #2364d2;
+  border: none;
+  border-radius: 5px;
+  font-size: 22px;
+  font-weight: 500;
+  font-family: "Source Sans Pro", sans-serif;
+  box-shadow: 3px 10px 20px 0px rgba(35, 100, 210, 0.3);
+  color: #fff;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-form button.disabled {
+  opacity: 0.5;
+  cursor: default;
+  box-shadow: none;
+}
+
+.card {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 430px;
+  height: 270px;
+  border-radius: 15px;
+  position: relative;
+}
+
+.card.container {
+  margin-bottom: -130px;
+  perspective: 1500px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.4s ease-in-out;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card.container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card .inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55);
+}
+
+.card .inner.flipped {}
+
+.card .inner .back,
+.card .inner .front {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.card .inner .back {
+  transform: rotateY(180deg);
+}
+
+.card .overlay {
+  background: rgba(6, 2, 29, 0.4);
+}
+
+.card .overlay,
+.card .content,
+.card .slider {
+  position: absolute;
+  top: 0;
+}
+
+.card .slider {
+  transition: all 0.45s cubic-bezier(0.71, 0.03, 0.56, 0.85);
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.65);
+}
+
+.card .slider:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgb(8, 20, 47);
+  height: 100%;
+  border-radius: 5px;
+  filter: blur(25px);
+  opacity: 0.5;
+}
+
+.card .slider.on-number {
+  transform: translate(15px, 50px);
+  opacity: 1;
+  border-radius: 8px;
+  width: 350px;
+  height: 50px;
+}
+
+.card .slider.on-name {
+  transform: translate(15px, 196px);
+  opacity: 1;
+  border-radius: 8px;
+  width: 300px;
+  height: 57px;
+}
+
+.card .slider.on-expiration {
+  transform: translate(250px, 165px);
+  opacity: 1;
+  display: flex;
+  border-radius: 8px;
+  width: 100px;
+  height: 57px;
+}
+
+.card .content {
+  padding: 25px 15px;
+  color: #fff;
+  /* display: flex; */
+}
+
+.card .content label {
+  color: #fff;
+  opacity: 0.7;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.card .content .number {
+  width: 92%;
+  padding: 15px;
+  margin-bottom: 30px;
+  font-weight: 500;
+  line-height: 1;
+  color: #fff;
+  font-size: 27px;
+  position: relative;
+  cursor: pointer;
+  text-align: center; /* Center the number */
+}
+
+.card .content .number .digit-wrapper {
+  display: inline-block;
+  width: 16px;
+}
+
+.card .content .number .digit-wrapper .digit {
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
+  font-family: "Source Code Pro", monospace;
+}
+
+.card .content .name {
+  font-size: 19px;
+  font-weight: 500;
+  width: 60%;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 10px;
+  vertical-align: top;
+  /* text-align: center; Center the name */
+}
+
+.card .content .name:empty:before {
+  content: "Full Name";
+  opacity: 0.5;
+}
+
+.card .content .name,
+.card .content .expiration {
+  cursor: pointer;
+}
+
+.card .content .expiration {
+  display: inline-block;
+  font-size: 18px;
+  vertical-align: top;
+  line-height: 2;
+  white-space: nowrap;
+  text-align: center; /* Center the expiration */
+}
+
+.card .logo {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.card .logo img {
+  width: 60px;
+}
+
+.card .chip {
+  position: absolute;
+  left: 20px;
+  top: 27px;
+  width: 40px;
+}
+
+.card .contactless {
+  position: absolute;
+  top: 32px;
+  left: 75px;
+}
+
+.card .contactless img {
+  width: 20px;
+  opacity: 0.8;
+}
+
+.card .signature {
+  position: absolute;
+  height: 40px;
+  right: 15px;
+  top: 105px;
+  width: 60px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.card .signature span {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 9px;
+  margin-top: 3px;
+  opacity: 0.8;
+}
+
+.card .back .cvv-wrapper {
+  position: absolute;
+  top: 95px;
+  right: 20px;
+  padding: 10px 15px;
+  width: 100px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+  text-align: right;
+  font-family: "Source Code Pro", monospace;
+}
+
+.card .back .cvv-wrapper span {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 9px;
+  margin-top: 3px;
+  opacity: 0.8;
+}
+
+.card .back .back-stripe {
+  height: 50px;
+  background: #2e2e2e;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.card .back .cover {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+}
+
+.card .back .cover img {
+  border-radius: 10px;
+}
+
+.card .back .content {
+  padding-top: 5px;
+  z-index: 10;
+}
+
+.card .back .content .strip {
+  display: inline-block;
+  width: 30%;
+  border-bottom: 1px solid #fff;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.card .back .content .strip:last-child {
+  margin-right: 0;
+}
+
+.card .back .content .strip span {
+  opacity: 0.8;
+  font-size: 10px;
+  margin-top: 3px;
+}
+
+.card .back .content .text {
+  margin-bottom: 0;
+}
+
+.card .back .content .text:last-child {
+  margin-bottom: 0;
+}
+
+.card .back .content .text span {
+  font-size: 11px;
+  opacity: 0.7;
+  display: inline-block;
+  width: 48%;
+  margin-top: 3px;
+  vertical-align: top;
+}
+
+.card .back .content .text span:last-child {
+  text-align: right;
+  width: 48%;
+}
+
+@media (max-width: 700px) {
+  .card-form {
+    min-width: auto;
+    padding: 30px 20px;
+  }
+
+  .card-form .card-inputs {
+    padding-top: 40px;
+  }
+
+  .card {
+    width: 380px;
+    height: 230px;
+  }
+
+  .card .content .number {
+    font-size: 24px;
+  }
+
+  .card .content .name {
+    font-size: 16px;
+  }
+
+  .card .content .expiration {
+    font-size: 16px;
+  }
+
+  .card .content .label {
+    font-size: 12px;
+  }
+
+  .card-form form {
+    grid-template-columns: 1fr;
+  }
+
+  .card-form .lg-input,
+  .card-form .med-input,
+  .card-form .sm-input {
+    grid-column: 1 / 2;
+  }
+
+  .card-form button {
+    margin-top: 15px;
+  }
+}
+.name-container{
+  text-transform: uppercase;
+
+  margin-top:7%;
+    width:50%;
+    height: auto;
+    font-size:x-large;
+    margin-left: 10%;
+    display: flex;
+    direction: ltr;
+}
+.number{
+  /* width:50%; */
+  display: flex;
+  direction: ltr;
+}
+#expiration{
+  width:auto;
+  display: flex;
+  flex-wrap: nowrap;
+}

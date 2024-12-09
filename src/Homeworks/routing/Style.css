@@ -1,0 +1,57 @@
+p {
+    font-family: 'Segoe UI', 'Belanosima', sans-serif;
+    color: rgb(3, 129, 9);
+}
+
+.Nav {
+    background-color: black;
+    height: 2rem;
+    padding: 2rem 0;
+}
+
+.link {
+    color: rgb(239, 181, 105);
+    margin: 0 2rem;
+    text-decoration: none;
+}
+
+.active {
+    color: chocolate;
+}
+
+.un {
+    color: rgb(219, 96, 176);
+}
+
+h5 {
+    font-family: 'Segoe UI', 'Belanosima', sans-serif;
+    color: rgb(3, 129, 9);
+    color: rgb(85, 196, 159);
+}
+
+
+button {
+    width: 230px;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    border: 1.5px solid rgb(160, 216, 255);
+    background-color: rgb(219, 233, 239);
+    font-family: 'Segoe UI', 'Belanosima', sans-serif;
+    cursor: pointer;
+    align-items: center;
+    justify-content: left;
+}
+
+input {
+    border: 1.5px solid rgb(160, 216, 255);
+    width: 200px;
+    height: 20px;
+    align-items: center;
+    justify-content: left;
+    border-radius: 5px;
+}
+
+.Hebrew {
+    justify-content: right;
+}

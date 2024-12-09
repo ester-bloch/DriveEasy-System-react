@@ -1,0 +1,90 @@
+.nav {
+    background-color: black;
+    width: 100%;
+    height: 3rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.link {
+    margin: 0 2rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+
+}
+.link1{
+    background-color: white;
+    position: absolute;
+    right: 75%;
+    /* border:2px white solid; */
+    border-radius: 50%;
+    color:black;
+    width:150px;
+    height: 100px;
+    top:-50px;
+    padding-top: 50px;
+    padding-right: 10px;
+}
+.active {
+    color: rgb(37, 17, 147);
+}
+
+body{
+    width: 100%;
+    background-color: black;
+    direction: rtl;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    color:white;
+}
+#profil{
+    width:40px;
+    height: 40px;
+    background-color: darkcyan;
+    display: flex;
+    text-align: center;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    /* margin-right: 30%; */
+    position: absolute;
+    position: fixed;
+    right: 2%;
+    top: 5%;
+}
+#logo{
+    width:122px;
+    display: flex;
+    text-align: center;
+    position: absolute;
+    position: fixed;
+    right: 90%;
+    top: 0%;
+}
+
+
+/* .imgInCard{
+   max-width:100%;
+} */
+#selectorkjlj{
+    
+}
+#rentCar,#loginDIv button,#bigCard button,.login-container button{
+    height: 40px;
+    width: 310px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    background: white;
+    transition: .3s;
+    background:linear-gradient(-90deg,rgb(37, 17, 147),rgb(13, 13, 14));
+    color: white;
+}

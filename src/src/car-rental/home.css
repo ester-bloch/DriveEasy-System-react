@@ -1,0 +1,50 @@
+.about{
+    width:100%;
+    margin-top:0;
+    /* margin-right:5% ; */
+    padding: 3%;
+    /* background-color:rgb(52, 41, 35); */
+    font-size: large;
+    margin-bottom: 3%;
+    text-align: right;
+}
+/* .about ul{
+    text-align: right;
+} */
+.about div{
+    /* text-align: center; */
+    font-size: xx-large;
+    margin-bottom: 1%;
+}
+.about img{
+    width: 100%;
+}
+.about1{
+    /* color: black; */
+    padding-left: 70%;
+    background-image: url('../pic/לרקע.png');
+    background-size: cover;
+    /* height: 50vh; */
+    font-size: x-large;
+}
+.about2{
+    padding-right: 50%;
+    background-image: url('../pic/נמל התעופה.png');
+    background-size: cover;
+    /* height: 50vh; */
+    font-size: x-large;
+}
+.about1 p,.about2 p,.about3 p{
+    font-size: 4vw;
+}
+.about3{
+    padding: 7%;
+    background-image: url('../pic/מהמם2.jpg');
+    background-size: cover;
+    font-size: x-large;
+    /* color: black; */
+}
+.imghome{
+    width: 100%;
+    /* margin: 0; */
+}
