@@ -27,7 +27,6 @@ export const reducer = produce((state, action) => {
         }
         case "ADD_USER": {
             state.users.sort((y, j) => y['key'] - j['key'])
-
             let max = state.users[state.users.length - 1].key + 1
             const user = action.payload
             let newUser = {

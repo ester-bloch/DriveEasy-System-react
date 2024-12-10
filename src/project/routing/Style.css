@@ -114,7 +114,10 @@ input {
     justify-content: left;
     border-radius: 5px;
 }
-
+#submit{
+    width: 230px;
+    height: 30px;
+}
 .Hebrew {
     justify-content: right;
 }

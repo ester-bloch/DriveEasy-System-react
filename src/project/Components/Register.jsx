@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser } from "../Data-Redux/action";
+import { addUser, LoginThisUser } from "../Data-Redux/action";
 import { useNavigate } from "react-router";
+import { AddUserToSql, getThisUser } from "../Data-Redux/api";
+import swal from "sweetalert"
 
 export const Register = () => {
 
@@ -95,23 +97,25 @@ export const Register = () => {
     }
 
     const send = (event) => {
-        //שמחפש לעבור לדף אחר submit ביטול ברירת המחדל של
         event.preventDefault();
         console.log(event);
         const user = {
-            name: firstnameRf.current.value,
-            id: idRf.current.value,
-            phoneNumber: cellRf.current.value
-            , password: passwordRf.current.value
-            , passDay: passDayRf.current.value
-            , cvv: cvvRf.current.value
-            , creditCard: creditCardRf.current.value
+            "name": firstnameRf.current.value,
+            "tz": idRf.current.value,
+            "phonenumber": cellRf.current.value
+            , "password": passwordRf.current.value
+            , "passDay": passDayRf.current.value,
+            "userTypesId": 2
+            , "cvv": cvvRf.current.value
+            , "creditCard": creditCardRf.current.value
         }
+
+        console.log("user");
         console.log(user);
+        console.log("errors");
         console.log(errors);
-
-
-
+        let ok = false
+        let find;
         if (errors.cvv.length == 0 &&
             errors.passDay.length == 0 &&
             errors.creditCard.length == 0 &&
@@ -119,9 +123,35 @@ export const Register = () => {
             errors.cell.length == 0 &&
             errors.id.length == 0 &&
             errors.firstname.length == 0) {
-            console.log("נכנסתי")
-            dispatch(addUser(user))
-            navigate("../Cars")
+            console.log("נכנסתי לשליחת משתמש לsql");
+            AddUserToSql(user).then(result => {
+                console.log(JSON.stringify(result.data))
+                getThisUser(user["name"], user["password"]).
+                    then(find => {
+                        if (find.data != null && find.data != undefined && find.data != "") {
+                            ok = true
+                        }
+                        console.log(find.data)
+                        { find.data && dispatch(LoginThisUser(find.data)) }
+                        { find.data && dispatch(addUser(find.data)) }
+                        if (ok && find.data.userTypesId == 1) {
+                            swal(`Hello new manager ${find.data.name} 👩‍💼`, 'Register successfuly!', 'success')
+                            navigate("../Cars")
+                            return
+                        }
+                        else if (ok) {
+                            swal(`Hello new user ${find.data.name}`, 'Welcome! Register successfuly😆😃!', 'success')
+                            navigate("../Cars")
+                            return
+                        }
+                        else {
+                            swal(`Hello  ${find.data.name}`, 'You are not a user of us', 'error')
+                            return
+                        }
+                    }
+                    )
+            }
+            )
         }
 
 
@@ -162,7 +192,7 @@ export const Register = () => {
             <input ref={cvvRf} id={'cvv'} type={'cvv'} onChange={(e) => validcvv(e)}></input>
             {errors.cvv !== '' && <p>{errors.cvv}</p>}
             <br></br><br></br>
-            <input type={'submit'} value={'sign up'} onClick={send}></input><br></br>
+            <input id="submit" type={'submit'} value={'sign up'} onClick={send}></input><br></br>
         </form>
     </>
 }
