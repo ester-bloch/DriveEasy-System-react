@@ -30,19 +30,14 @@ export const Lend = () => {
         }
     }
 
-/**
-  "id": 0,
-  "userId": 7,
-  "carId": 30,
-  "date": "2024-12-18",
-  "hour":  */
+
     return <>
         <h4>טופס השאלה</h4>
         <p>:מבקש להשאיל את  {userNAme}  משתמש</p>
         <p>מספר רישוי:{passNum}</p>
         <p> תאריך: {dateString}</p>
         <p> שעה: {hour}</p>
-        <button onClick={send}>לאישור</button>
+        <button onClick={send}>לאישור</button><br></br>
         <label id="after" ></label>
     </>
 }

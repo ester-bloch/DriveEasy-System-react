@@ -5,6 +5,7 @@ import { Register } from "../Components/Register"
 import { Cars } from "../Components/Cars"
 import { CarDetails } from "../Components/CarDetails"
 import { Lend } from "../Components/Lend"
+import { ToReturn } from "../Components/ToReturn"
 export const Routing = () => {
     return <>
         <Routes>
@@ -12,6 +13,7 @@ export const Routing = () => {
             <Route path="Cars" element={<Cars></Cars>}>    </Route>
             <Route path="CarDetails" element={<CarDetails></CarDetails>}>  
             <Route path="Lend" element={<Lend></Lend>}></Route>
+            <Route path="return" element={<ToReturn></ToReturn>}></Route>
               </Route>
             <Route path="Login" element={<Login></Login>}> </Route>
             <Route path="Home" element={<Home></Home>}></Route>

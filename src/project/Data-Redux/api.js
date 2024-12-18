@@ -19,9 +19,12 @@ export const getThisUser = (name,password) => {
                 return axios.post(`${baseUrl}/Users`,newUser)
             }
             export const AddLendToSql = (newLend) => {
-                console.log(`from AddLendToSql `)
-                console.log(newLend)
                 return axios.post(`${baseUrl}/Lends`,newLend)
+            }
+            export const AddReturnToSql = (newReturn) => {
+                console.log(`from AddReturnToSql :`)
+                console.log(newReturn)
+                return axios.post(`${baseUrl}/Returns`,newReturn)
             }
 
 export const update=(id, course)=>{

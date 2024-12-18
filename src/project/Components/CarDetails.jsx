@@ -24,6 +24,9 @@ export const CarDetails = () => {
 בלחיצה על אישור – שמירה במערכת. (עדכון הרכב לתפוס */
          navigate(`Lend`)
     }
+    const  ToReturn=()=>{
+        navigate(`return`)
+    }
     return <>
         <>
             <span>
@@ -68,7 +71,8 @@ export const CarDetails = () => {
         </>
         <button onClick={() => { navigate("../Cars") }}>go back</button>
         <br></br>
-       {toLend==true&& <button onClick={() => {lend()  }}>השאלה</button>}
+        {toLend==true&& <button onClick={() => {lend()  }}>השאלה</button>}
+        {toLend==false&& <button onClick={() => {ToReturn()  }}>החזרה</button>}
         <Outlet></Outlet>
     </>
 }
