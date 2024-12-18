@@ -22,15 +22,14 @@ export const Cars = () => {
     const [carsToShow, setCarsToShow] = useState()
     const filterList =
     {//דגם (יש להציג חברה ומודל,) סוג הנעה, סוג רכב,עיר, מס' מקומות, .
-
         "company":
             ["tesla", "toyota", "mercedes", "mitzuvishi", "frary", "limuzine", "man"],
         "model":
-            ["bimba","tustus","juk","1980","1998","1999","2025","2008","2020","2021","2022","2023","2024"],
+            ["bimba", "tustus", "juk", "1980", "1998", "1999", "2025", "2008", "2020", "2021", "2022", "2023", "2024"],
         "propulsion type":
-            ["gas", "hybrid","electric","soler"],
+            ["gas", "hybrid", "electric", "soler"],
         "car type":
-            ["private","station","family","manager","business","minibus","bus","bimba", "jip","jipon"],
+            ["private", "station", "family", "manager", "business", "minibus", "bus", "bimba", "jip", "jipon"],
         "num of places":
             [2, 4, 5, 7, 9, 10, 50, 60],
         "town":
@@ -47,8 +46,7 @@ export const Cars = () => {
                         cars.splice(i, 1)
                 }
                 dispatch(setCarsFromServer(cars))
-
-
+                console.log(x.data);
             })
             .catch(err => {
                 console.log(err);
@@ -71,7 +69,7 @@ export const Cars = () => {
         let x = []
         switch (howTosearch) {
             case "town": {
-                 cars.forEach(element => {
+                cars.forEach(element => {
                     if (element.city == text) {
                         x.push(element)
                     }
@@ -79,12 +77,12 @@ export const Cars = () => {
                 break;
             }
             case "num of places": {
-                 cars.forEach(element => {
+                cars.forEach(element => {
                     if (element.numPlaces == text) {
                         x.push(element)
                     }
                 });
-                 break;
+                break;
             }
             case "company": {
                 cars.forEach(element => {
@@ -104,7 +102,7 @@ export const Cars = () => {
             }
             //thisEngineType = engineTypes.find(p => p.key == engineTypeId).description
             case "propulsion type": {
-                console.log(engineTypes);                
+                console.log(engineTypes);
                 cars.forEach(element => {
                     console.log(engineTypes.find(cm => cm.key == element.engineTypeId + 1));
                     if (engineTypes.find(cm => cm.key == element.engineTypeId).description == text) {
@@ -113,11 +111,11 @@ export const Cars = () => {
                 });
                 break;
             }
-             case "car type": {
-                console.log(engineTypes);                
+            case "car type": {
+                console.log(engineTypes);
                 cars.forEach(element => {
                     console.log(engineTypes.find(cm => cm.key == element.engineTypeId + 1));
-                    if (CarTypes.find(t=>t.key==carModels.find(cm => cm.key == element.carModelId+1).carType).description == text) {
+                    if (CarTypes.find(t => t.key == carModels.find(cm => cm.key == element.carModelId + 1).carType).description == text) {
                         x.push(element)
                     }
                 });
@@ -131,6 +129,7 @@ export const Cars = () => {
 
 
     return <>
+        {console.log(cars)}
         <User></User>
         <Select set={setHowTosearch} funcOnChng={onChangeSubject} text={"How To search"} list={["company", "model", "propulsion type", "car type", "num of places", "town"]}></Select>
         {showSelect2 &&
@@ -142,7 +141,7 @@ export const Cars = () => {
                     <br></br>
                     {/* //    const { engineTypeId, carModelId, numCar, passNum, carModel, numPlaces, pic, year, autoGir, engineType, pricePerHour, gasPerHour, LeftGas, city, street, empty } = props */}
 
-                    <OneCar  numCar={p.key} passNum={p.passNum} carModelId={p.carModelId} engineTypeId={p.engineTypeId} carModel={p.carModel} numPlaces={p.numPlaces} pic={p.pic} year={p.year} autoGir={p.autoGir} engineType={p.engineType} pricePerHour={p.pricePerHour} gasPerHour={p.gasPerHour} LeftGas={p.LeftGas} city={p.city} street={p.street} empty={p.empty}></OneCar>
+                    <OneCar numCar={p.id} id={p.id}passNum={p.passNum} carModelId={p.carModelId} engineTypeId={p.engineTypeId} carModel={p.carModelDto} numPlaces={p.numPlaces} pic={p.pic} year={p.year} autoGir={p.autoGir} engineType={p.engineTypeDto} pricePerHour={p.pricePerHour} gasPerHour={p.gasPerHour} LeftGas={p.leftGas} city={p.city} street={p.street} empty={p.empty}></OneCar>
                     {/* <OneCar  numCar={p.key} passNum={p.passNum} carModelId={p.carModelId} engineTypeId={p.engineTypeId} carModel={p.carModel} numPlaces={p.numPlaces} pic={p.pic} year={p.year} autoGir={p.autoGir} engineType={p.engineType} pricePerHour={p.pricePerHour} gasPerHour={p.gasPerHour} LeftGas={p.LeftGas} city={p.city} street={p.street} empty={p.empty}></OneCar> */}
                     <br></br>
                 </>

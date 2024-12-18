@@ -172,7 +172,17 @@ export const InitialState = {
         { key: 28, passNum: 3333333, carModel: 3, numPlaces: 5, pic: null, year: 2005, autoGir: false, engineType: 4, pricePerHour: 20, gasPerHour: 12, LeftGas: 13, city: "Yerushlayim", street: "Bar Ilan", empty: true },
 
     ],
-    Hashala: [
+    stam:[
+        { "userId": 4,"date":  "2024-12-15", "hour":1, "retuned": true},
+        { "userId": 4,"date":  "2024-12-15", "hour": 2, "retuned": true},
+        { "userId": 5,"date":  "2024-12-15", "hour": 3, "retuned": false},
+        { "userId": 5,"date":  "2024-12-15", "hour": 4, "retuned": true},
+        { "userId": 6,"date":  "2024-12-15", "hour": 5, "retuned":false},
+        { "userId": 6,"date":  "2024-12-15", "hour": 6, "retuned": false},
+        { "userId": 7,"date":  "2024-12-15", "hour": 7, "retuned": true},
+        { "userId": 7,"date":  "2024-12-15", "hour": 8, "retuned": false}
+      ]
+    ,Hashala: [
         { key: 1, userCode: 1, "date": new Date().getDay, hour: new Date().getHours, retuned: false },
         { key: 2, userCode: 1, "date": new Date().getDay, hour: new Date().getHours, retuned: true },
         { key: 3, userCode: 2, "date": new Date().getDay, hour: new Date().getHours, retuned: true },

@@ -2,9 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import { Main }from "./project/Main"
 // import { Main } from "./src/car-rental/Main"
-import PinnedSubheaderList from './project/OutsiderConps/List2';
+// import PinnedSubheaderList from './project/OutsiderConps/List2';
 // import { Main } from "./Homeworks/Main"
-// import { Main } from "./Lessons/lesson10/Main"
+//  import { Main } from "./Lessons/lesson11/Main"
 // import { Main } from "./Lessons/lesson8/Components/Main"
 
 

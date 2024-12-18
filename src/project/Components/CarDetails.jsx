@@ -1,11 +1,13 @@
 import { useSelector } from "react-redux"
-import { useNavigate } from "react-router"
+import { Outlet, useNavigate } from "react-router"
 import { IsEmpty } from "./IsEmpty"
+import { useState } from "react"
 
 export const CarDetails = () => {
     const navigate = useNavigate()
     let car = useSelector(s => s.currentCar)
-    const { engineTypeId, carModelId, numCar, passNum, carModel, numPlaces, pic, year, autoGir, engineType, pricePerHour, gasPerHour, LeftGas, city, street, empty } = car
+    const { engineTypeId, carModelId, id, numCar, passNum, carModel, numPlaces, pic, year, autoGir, engineType, pricePerHour, gasPerHour, LeftGas, city, street, empty } = car
+    const[toLend,setToLend]=useState(empty)
     let CarTypes = useSelector(s => s.CarTypes)
     let carModels = useSelector(s => s.carModels)
     let engineTypes = useSelector(s => s.engineTypes)
@@ -14,33 +16,60 @@ export const CarDetails = () => {
     let engineTypeIcon = null
     if (thisEngineType != undefined) engineTypeIcon = thisEngineType.description == "gas" ? "⛽" : thisEngineType.description == "soler" ? "💡" : thisEngineType.description == "electric" ? "🔌" : "⚡"
     let s = empty == true ? 'green' : 'red'
-    let thisCarType = CarTypes.find(o =>  o.key == thisCarModel.carType )
+    let thisCarType = CarTypes.find(o => o.key == thisCarModel.carType)
+    const lend = () => {
+        /**השאלה: מילוי אוטומטי של מס' רישוי הרכב, 
+         * תאריך ושעה עכשוויים (לצורך העניין – כמובן שזה לא נכון)...,
+         *  כפתור אישור.
+בלחיצה על אישור – שמירה במערכת. (עדכון הרכב לתפוס */
+         navigate(`Lend`)
+    }
     return <>
-       <span id="OneCar">
-  {/* //          { <p>רכב מספר {numCar}</p> } */}
-            <span style={{ color: { s } }}>
-                <div className="forImg">
-                    <img src={process.env.PUBLIC_URL + '/images/' + pic + '.png'}></img>
+        <>
+            <span>
+                <div style={{ color: { s } }}>
+                    <div className="forImg">
+                        <img src={process.env.PUBLIC_URL + '/images/' + pic + '.png'}></img>
+                    </div>
                 </div>
-            </span>
-            <IsEmpty color={s}></IsEmpty>
-            <span style={{ color: `${s}` }}>
+                <IsEmpty color={s}></IsEmpty>
+                {/*         {    "city": "string", "street": "string", "empty": true }],
+ */}
                 <label> תיאור: </label>
-                <label> {thisCarType.description=="bimba"?"בימבה":thisCarType.description} </label>
+                <label> {thisCarType.description == "bimba" ? "בימבה" : thisCarType.description} </label>
                 <br></br><label> חברה:  </label>
                 <label>{thisCarModel.company}  </label>
                 <br></br><label> מודל:  </label>
                 <label> {thisCarModel.model}  </label>
+                <br></br><label>  מספר רישוי: </label>
+                <label> {passNum}  </label>
                 <br></br><label>  מספר מקומות: </label>
                 <label> {numPlaces}  </label>
+                <br></br><label>   שנה: </label>
+                <label> {year}  </label>
+                <br></br>
+                <label> {autoGir == true ? "👍" : "👎"}  </label>
+                <label>:   גיר אוטומטי </label>
                 <br></br><label> מיקום: </label>
                 <label> {city},     {street}  </label>
-                <br></br><label>{engineTypeIcon}</label>
-                
-            </span>
-        </span>
-        <button onClick={() => { navigate("../Cars") }}>go back</button>
+                <br></br><label> גז לשעה: </label>
+                <label>  {gasPerHour}  </label>
+                <br></br><label> גז שנותר: </label>
+                <label>  {LeftGas}  </label>
 
+                <br></br><label> מחיר לשעה: </label>
+                <label>  {passNum % 10 + numPlaces * 2}  </label>
+                <br></br>
+                <label>{engineTypeIcon}</label>
+
+                <label>{thisEngineType.description} :סוג הנעה</label>
+                <br></br>
+            </span>
+        </>
+        <button onClick={() => { navigate("../Cars") }}>go back</button>
+        <br></br>
+       {toLend==true&& <button onClick={() => {lend()  }}>השאלה</button>}
+        <Outlet></Outlet>
     </>
 }
 /**?

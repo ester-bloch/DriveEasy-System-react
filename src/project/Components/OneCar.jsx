@@ -22,7 +22,9 @@ import { setCurrentCar } from "../Data-Redux/action";
 //, תפוס באדום. יש
 //להציג סימון לסוג ההנעה
 export const OneCar = props => {
-    const { engineTypeId, carModelId, numCar, passNum, carModel, numPlaces, pic, year, autoGir, engineType, pricePerHour, gasPerHour, LeftGas, city, street, empty }=props
+    const { engineTypeId,id, carModelId, numCar, passNum, carModel, numPlaces, pic, year, autoGir, engineType, pricePerHour, gasPerHour, LeftGas, city, street, empty }=props
+    console.log(props);
+    
     const dispatch = useDispatch() 
     const navigate = useNavigate()
     let CarTypes = useSelector(s => s.CarTypes)
@@ -38,7 +40,7 @@ export const OneCar = props => {
 
     return <>
         <span id="OneCar">
-            {/* <p>רכב מספר {numCar}</p> */}
+            <p>רכב מספר {numCar}</p>
             <span style={{ color: { s } }}>
                 <div className="forImg">
                     <img src={process.env.PUBLIC_URL + '/images/' + pic + '.png'}></img>

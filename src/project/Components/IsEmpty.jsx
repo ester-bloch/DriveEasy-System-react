@@ -1,7 +1,7 @@
 import { blue } from "@mui/material/colors"
 
 export const IsEmpty = ({ color }) => {
-    const s={ "background-color": `${color=="green"?color:"brown"}` }
+    const s={ "backgroundColor": `${color=="green"?color:"brown"}` }
     return <div className="IsEmpty" style={s}>
         {/* {console.log(color + "color")} */}
         {color == "green" && <Empty></Empty>}

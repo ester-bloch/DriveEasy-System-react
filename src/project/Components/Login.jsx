@@ -33,7 +33,8 @@ export const Login = () => {
                     ok = true
                 }
                 console.log(find)
-                { find && dispatch(LoginThisUser(user)) }
+                console.log(find.data)
+                { find && dispatch(LoginThisUser(find.data)) }
                 if (ok && user.userTypesId == 1) {
                     swal(`Hello manager ${user.name} 👩‍💼`, 'login successfuly!', 'success')
                     navigate("../Cars")
