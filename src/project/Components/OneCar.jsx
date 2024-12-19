@@ -59,10 +59,10 @@ export const OneCar = props => {
                 <br></br><label> מיקום: </label>
                 <label> {city},     {street}  </label>
                 <br></br><label>{engineTypeIcon}</label>
-                <button onClick={()=>{
+                <button className="smallButton" onClick={()=>{
                     dispatch(setCurrentCar(props))
                     navigate("../CarDetails")
-                    }}>CarDetails</button>
+                    }}>פרטי רכב</button>
                 
             </span>
         </span>

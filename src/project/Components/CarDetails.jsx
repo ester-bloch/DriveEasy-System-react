@@ -6,6 +6,7 @@ import { useState } from "react"
 export const CarDetails = () => {
     const navigate = useNavigate()
     let car = useSelector(s => s.currentCar)
+    let currentUser = useSelector(s => s.currentUser)
     const { engineTypeId, carModelId, id, numCar, passNum, carModel, numPlaces, pic, year, autoGir, engineType, pricePerHour, gasPerHour, LeftGas, city, street, empty } = car
     const[toLend,setToLend]=useState(empty)
     let CarTypes = useSelector(s => s.CarTypes)
@@ -69,10 +70,10 @@ export const CarDetails = () => {
                 <br></br>
             </span>
         </>
-        <button onClick={() => { navigate("../Cars") }}>go back</button>
+        <button onClick={() => { navigate("../Cars") }}> חזרה לגלריית הרכבים</button>
         <br></br>
-        {toLend==true&& <button onClick={() => {lend()  }}>השאלה</button>}
-        {toLend==false&& <button onClick={() => {ToReturn()  }}>החזרה</button>}
+        {toLend==true&&currentUser.id&& <button onClick={() => {lend()  }}>השאלה</button>}
+        {toLend==false&&currentUser.id&& <button onClick={() => {ToReturn()  }}>החזרה</button>}
         <Outlet></Outlet>
     </>
 }

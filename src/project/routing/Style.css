@@ -121,3 +121,6 @@ input {
 .Hebrew {
     justify-content: right;
 }
+.smallButton{
+    width: 190px;
+}

@@ -1,36 +1,40 @@
 import { useSelector } from "react-redux"
 import { AddReturnToSql } from "../Data-Redux/api"
 import { useState } from "react"
+import { Pay } from "./Pay"
 export const ToReturn = props => {
     let car = useSelector(s => s.currentCar)
     const { engineTypeId, carModelId, id, numCar, passNum, carModel, numPlaces, pic, year, autoGir, engineType, pricePerHour, gasPerHour, LeftGas, city, street, empty } = car
     let currentUser = useSelector(store => store.currentUser)
     let userNAme = currentUser == null || currentUser == undefined || currentUser.name == undefined || currentUser == "" ? "😏אורח" : currentUser.name
+    let firstTime = true;
     const day = new Date()
     const dateString = `${day.getFullYear().toString()}-${day.getMonth() + 1}-${day.getDate()}`
     const hour = new Date().getHours()
-    const [pay,setPay]=useState(false)
+    const [pay, setPay] = useState(false)
     const send = () => {
-        if (!empty && currentUser.id) {
-            const newReturn= {
+        if (!empty && currentUser.id && firstTime) {
+            firstTime = false;
+            const newReturn = {
                 "street": document.getElementById("street").value,
                 "city": document.getElementById("city").value,
                 "lendId": document.getElementById("lendId").value,
-                // "userId": currentUser.id,
+                "userId": currentUser.id,
                 "carId": id,
                 "date": dateString,
                 "hour": hour,
                 "sumToPay": 30,
                 "leftToPay": 0
             }
-            console.log(newReturn);
-            
+            //console.log(newReturn);
             AddReturnToSql(newReturn).then(data => {
                 document.getElementById("after").innerHTML = `הוחזר בהצלחה, מספר החזרה: ${data.data}`
+                setPay(true)
+                firstTime = false;
             })
-                .catch(err => { console.log(err); 
+                .catch(err => {
+                    console.log(err);
                     document.getElementById("after").innerHTML = `...החזרה לא הצליחה`
-
                 }
                 )
         }
@@ -49,7 +53,8 @@ export const ToReturn = props => {
         <p> תאריך: {dateString}</p>
         <p> שעה: {hour}</p>
         <button onClick={send}>לאישור</button><br></br>
-        <label id="after" ></label>
+        <label id="after" ></label><br></br>
+        {pay && <Pay sumToPay={30}></Pay>}
     </>
 
 }

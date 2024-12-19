@@ -8,10 +8,15 @@ import PinnedSubheaderList from "../OutsiderConps/List2"
 import { Select } from "./Select"
 import { setCarsFromServer } from "../Data-Redux/action"
 import { getCarsFromSql } from "../Data-Redux/api"
+import { Button } from "bootstrap"
+import { Manager } from "./Manager"
+import { Navigate, useNavigate } from "react-router"
 
 export const Cars = () => {
+    const navigate=useNavigate()
     let carModels = useSelector(s => s.carModels)
     let engineTypes = useSelector(s => s.engineTypes)
+    const isManager=useSelector(e=>e.isManager)
     let CarTypes = useSelector(s => s.CarTypes)
     let selectedRef = useRef()
     const dispatch = useDispatch()
@@ -126,11 +131,15 @@ export const Cars = () => {
         setCarsToShow([...x.filter(p => p.empty)])
         console.log(carsToShow);
     }
-
+const managerFunc=()=>{
+    navigate("../Manager")
+}
 
     return <>
         {console.log(cars)}
         <User></User>
+        <br></br>
+        {isManager&& <button onClick={managerFunc}>לעריכה מתקדמת</button>}
         <Select set={setHowTosearch} funcOnChng={onChangeSubject} text={"How To search"} list={["company", "model", "propulsion type", "car type", "num of places", "town"]}></Select>
         {showSelect2 &&
             <Select ref={selectedRef} set={setSelected} funcOnChng={search} text={howTosearch} list={filterList[howTosearch]}></Select>}

@@ -23,6 +23,7 @@ export const reducer = produce((state, action) => {
 
             // }
             state.currentUser =action.payload
+            state.isManager=action.payload.userTypesId==1
 
             break;
         }
