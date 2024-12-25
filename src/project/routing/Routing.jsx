@@ -11,6 +11,8 @@ import { SetModel } from "../Components/ManagerSet/SetModel"
 import { SetEngineType } from "../Components/ManagerSet/SetEngineTypes"
 import { SetCars } from "../Components/ManagerSet/SetCars"
 import { SetLends } from "../Components/ManagerSet/SetLends"
+import { AddCar } from "../Components/ManagerSet/AddCar"
+import { AddModel } from "../Components/ManagerSet/AddModel"
 export const Routing = () => {
     return <>
         <Routes>
@@ -22,10 +24,14 @@ export const Routing = () => {
             </Route>
             <Route path="Login" element={<Login></Login>}> </Route>
             <Route path="Manager" element={<Manager></Manager>}>
-            <Route path="Cars" element={<SetCars></SetCars>}></Route>
-            <Route path="Lends" element={<SetLends></SetLends>}></Route>
-            <Route path="Model" element={<SetModel></SetModel>}></Route>
-            <Route path="Engine" element={<SetEngineType></SetEngineType>}></Route>
+                <Route path="Cars" element={<SetCars></SetCars>}>
+                    <Route path="addCar" element={<AddCar></AddCar>}></Route>
+                </Route>
+                <Route path="Lends" element={<SetLends></SetLends>}></Route>
+                <Route path="Model" element={<SetModel></SetModel>}>
+                    <Route path="addModel" element={<AddModel></AddModel>}></Route>
+                </Route>
+                <Route path="Engine" element={<SetEngineType></SetEngineType>}></Route>
             </Route>
             <Route path="Home" element={<Home></Home>}></Route>
             <Route path="" element={<Home></Home>}></Route>

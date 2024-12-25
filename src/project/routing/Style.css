@@ -64,7 +64,7 @@ img {
     height: 2rem;
     padding: 2rem 0;
 }
-h4{
+h4,h2{
     color: rgb(3, 129, 9);
 }
 .link {
@@ -88,6 +88,7 @@ h5 {
 
 div {
     align-items: center;
+    direction: rtl;
 }
 
 select, button {
@@ -123,4 +124,22 @@ input {
 }
 .smallButton{
     width: 190px;
+}
+#add{ margin: 20px;
+    padding: 15px;
+    direction: rtl;
+    border: 3px solid rgb(189, 207, 221);
+    margin-right: 38%;
+    border-radius: 20px;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    cursor: grab;
+    /* border: coral; */
+    direction: rtl;
+
+}
+#ltr{
+    direction: ltr;
 }

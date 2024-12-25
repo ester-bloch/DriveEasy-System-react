@@ -26,7 +26,6 @@ export const ToReturn = props => {
                 "sumToPay": 30,
                 "leftToPay": 0
             }
-            //console.log(newReturn);
             AddReturnToSql(newReturn).then(data => {
                 document.getElementById("after").innerHTML = `הוחזר בהצלחה, מספר החזרה: ${data.data}`
                 setPay(true)

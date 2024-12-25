@@ -23,7 +23,6 @@ import { setCurrentCar } from "../Data-Redux/action";
 //להציג סימון לסוג ההנעה
 export const OneCar = props => {
     const { engineTypeId,id, carModelId, numCar, passNum, carModel, numPlaces, pic, year, autoGir, engineType, pricePerHour, gasPerHour, LeftGas, city, street, empty }=props
-    console.log(props);
     
     const dispatch = useDispatch() 
     const navigate = useNavigate()

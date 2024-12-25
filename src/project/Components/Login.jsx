@@ -32,8 +32,6 @@ export const Login = () => {
                     user = find.data
                     ok = true
                 }
-                console.log(find)
-                console.log(find.data)
                 { find && dispatch(LoginThisUser(find.data)) }
                 if (ok && user.userTypesId == 1) {
                     swal(`Hello manager ${user.name} 👩‍💼`, 'login successfuly!', 'success')

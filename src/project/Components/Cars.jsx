@@ -13,10 +13,10 @@ import { Manager } from "./Manager"
 import { Navigate, useNavigate } from "react-router"
 
 export const Cars = () => {
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     let carModels = useSelector(s => s.carModels)
     let engineTypes = useSelector(s => s.engineTypes)
-    const isManager=useSelector(e=>e.isManager)
+    const isManager = useSelector(e => e.isManager)
     let CarTypes = useSelector(s => s.CarTypes)
     let selectedRef = useRef()
     const dispatch = useDispatch()
@@ -51,10 +51,8 @@ export const Cars = () => {
                         cars.splice(i, 1)
                 }
                 dispatch(setCarsFromServer(cars))
-                console.log(x.data);
             })
             .catch(err => {
-                console.log(err);
             })
     }, [])
 
@@ -70,7 +68,6 @@ export const Cars = () => {
     }, [howTosearch])
 
     const search = (text) => {
-        console.log("howTosearch=  " + howTosearch);
         let x = []
         switch (howTosearch) {
             case "town": {
@@ -107,9 +104,7 @@ export const Cars = () => {
             }
             //thisEngineType = engineTypes.find(p => p.key == engineTypeId).description
             case "propulsion type": {
-                console.log(engineTypes);
                 cars.forEach(element => {
-                    console.log(engineTypes.find(cm => cm.key == element.engineTypeId + 1));
                     if (engineTypes.find(cm => cm.key == element.engineTypeId).description == text) {
                         x.push(element)
                     }
@@ -117,9 +112,7 @@ export const Cars = () => {
                 break;
             }
             case "car type": {
-                console.log(engineTypes);
                 cars.forEach(element => {
-                    console.log(engineTypes.find(cm => cm.key == element.engineTypeId + 1));
                     if (CarTypes.find(t => t.key == carModels.find(cm => cm.key == element.carModelId + 1).carType).description == text) {
                         x.push(element)
                     }
@@ -127,22 +120,18 @@ export const Cars = () => {
                 break;
             }
         }
-        console.log(x);
         setCarsToShow([...x.filter(p => p.empty)])
-        console.log(carsToShow);
     }
-const managerFunc=()=>{
-    navigate("../Manager")
-}
+    const managerFunc = () => {
+        navigate("../Manager")
+    }
 
     return <>
-        {console.log(cars)}
         <User></User>
         <br></br>
-        {isManager&& <button onClick={managerFunc}>לעריכה מתקדמת</button>}
-        <Select set={setHowTosearch} funcOnChng={onChangeSubject} text={"How To search"} list={["company", "model", "propulsion type", "car type", "num of places", "town"]}></Select>
-        {showSelect2 &&
-            <Select ref={selectedRef} set={setSelected} funcOnChng={search} text={howTosearch} list={filterList[howTosearch]}></Select>}
+        {isManager && <button onClick={managerFunc}>לעריכה מתקדמת</button>}
+        <Select set={setHowTosearch} funcOnChng={onChangeSubject} text={"how to search"} list={["company", "model", "propulsion type", "car type", "num of places", "town"]}></Select>
+        {showSelect2 && <Select ref={selectedRef} set={setSelected} funcOnChng={search} text={howTosearch} list={filterList[howTosearch]}></Select>}
         <div id="cars">
             <br></br>
             {carsToShow && carsToShow.map((p, i) =>
@@ -150,10 +139,10 @@ const managerFunc=()=>{
                     <br></br>
                     {/* //    const { engineTypeId, carModelId, numCar, passNum, carModel, numPlaces, pic, year, autoGir, engineType, pricePerHour, gasPerHour, LeftGas, city, street, empty } = props */}
 
-                    <OneCar numCar={p.id} id={p.id}passNum={p.passNum} carModelId={p.carModelId} engineTypeId={p.engineTypeId} carModel={p.carModelDto} numPlaces={p.numPlaces} pic={p.pic} year={p.year} autoGir={p.autoGir} engineType={p.engineTypeDto} pricePerHour={p.pricePerHour} gasPerHour={p.gasPerHour} LeftGas={p.leftGas} city={p.city} street={p.street} empty={p.empty}></OneCar>
+                    <OneCar numCar={p.id} id={p.id} passNum={p.passNum} carModelId={p.carModelId} engineTypeId={p.engineTypeId} carModel={p.carModelDto} numPlaces={p.numPlaces} pic={p.pic} year={p.year} autoGir={p.autoGir} engineType={p.engineTypeDto} pricePerHour={p.pricePerHour} gasPerHour={p.gasPerHour} LeftGas={p.leftGas} city={p.city} street={p.street} empty={p.empty}></OneCar>
                     {/* <OneCar  numCar={p.key} passNum={p.passNum} carModelId={p.carModelId} engineTypeId={p.engineTypeId} carModel={p.carModel} numPlaces={p.numPlaces} pic={p.pic} year={p.year} autoGir={p.autoGir} engineType={p.engineType} pricePerHour={p.pricePerHour} gasPerHour={p.gasPerHour} LeftGas={p.LeftGas} city={p.city} street={p.street} empty={p.empty}></OneCar> */}
                     <br></br>
-                </>
+                </ >
             )}
         </div>
     </>

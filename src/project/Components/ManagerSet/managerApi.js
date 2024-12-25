@@ -3,38 +3,36 @@ const baseUrl = `https://localhost:7204/api`
 export const getCarsFromSql = () => {
     return axios.get(`${baseUrl}/Cars`)
 }
-export const getThisUser = (name,password) => {
-    return axios.get(`${baseUrl}/Users/${name}/${password}`)
+export const removeCarFromSql = (id) => {
+    return axios.delete(`${baseUrl}/Cars${id}`)
 }
-/*
- * 
- axios.post("https://localhost:7256/api/Person",
-                        { id: "6", name: "חיים", yearBorn: "2000", numChildren: "4" }).
-                then((result) =>
-                {//אם הייתה שגיאה בשרת אז לא היינו מגיעות לפה ויש לטפל בעתיד בשגיאות
-                document.getElementById("results").innerHTML = "ההוספה בוצעה"
-            });
- */
-            export const AddUserToSql = (newUser) => {
-                return axios.post(`${baseUrl}/Users`,newUser)
-            }
-            export const AddLendToSql = (newLend) => {
-                return axios.post(`${baseUrl}/Lends`,newLend)
-            }
-            export const AddReturnToSql = (newReturn) => {
-                console.log(`from AddReturnToSql :`)
-                console.log(newReturn)
-                return axios.post(`${baseUrl}/Returns`,newReturn)
-            }
-
-export const update=(id, course)=>{
-    return axios.post(`${baseUrl}/Courses/?id=${id}`, course)
+export const updateCarInSql = (id) => {
+    return axios.put(`${baseUrl}/Cars/${id}`)
 }
-// function showData() {
-//     //getשימוש בקריאת שרת של
-//     axios.get("https://localhost:7119/api/Person").
-//         then((result) => {
+export const addCarToSql = (car) => {
+    return axios.post(`${baseUrl}/Cars`,car)
+}
+export const getEngineTypesFromSql = () => {
+    return axios.get(`${baseUrl}/EngineTypes`)
+}
+//https://localhost:7204/api/EngineTypes?id=1
+export const updateEngineTypesInSql = (id,newEngine) => {
+    return axios.put(`${baseUrl}/EngineTypes?id=${id}`,newEngine)
+}
 
-//             document.getElementById("results").innerHTML = JSON.stringify(result.data)
-//         });
-// }
+export const getCarModelsFromSql = () => {
+    return axios.get(`${baseUrl}/CarModels`)
+}
+export const getCarTypesFromSql = () => {
+    return axios.get(`${baseUrl}/CarTypes`)
+
+}
+export const addCarModelToSql = (carModel) => {
+    return axios.post(`${baseUrl}/CarModels`,carModel)
+}
+export const updateLendInSql = (id) => {
+    return axios.put(`${baseUrl}/Lends/${id}`)
+}
+export const getLendsFromSql = () => {
+    return axios.get(`${baseUrl}/Lends`)
+}

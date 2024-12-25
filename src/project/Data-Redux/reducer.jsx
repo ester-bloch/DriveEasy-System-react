@@ -44,7 +44,7 @@ export const reducer = produce((state, action) => {
             }
             state.users.push(newUser)
             state.currentUser = newUser
-            console.log(state.users.find(s => s.name == newUser.name).key);
+            // console.log(state.users.find(s => s.name == newUser.name).key);
 
             break
         }
@@ -60,7 +60,7 @@ export const reducer = produce((state, action) => {
         }
         case "SET_CURRENT_CAR":{
             state.currentCar =action. payload
-            console.log(`from reducer2: isManager:${state.isManager}`);
+            // console.log(`from reducer2: isManager:${state.isManager}`);
             break;
         }
     
