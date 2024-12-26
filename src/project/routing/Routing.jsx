@@ -13,6 +13,8 @@ import { SetCars } from "../Components/ManagerSet/SetCars"
 import { SetLends } from "../Components/ManagerSet/SetLends"
 import { AddCar } from "../Components/ManagerSet/AddCar"
 import { AddModel } from "../Components/ManagerSet/AddModel"
+import { UpdateCar } from "../Components/ManagerSet/updateCar"
+import { CarDetailsManager } from "../Components/ManagerSet/CarDetailsManager"
 export const Routing = () => {
     return <>
         <Routes>
@@ -26,7 +28,9 @@ export const Routing = () => {
             <Route path="Manager" element={<Manager></Manager>}>
                 <Route path="Cars" element={<SetCars></SetCars>}>
                     <Route path="addCar" element={<AddCar></AddCar>}></Route>
+                    <Route path="updataCar" element={<UpdateCar></UpdateCar>}></Route>
                 </Route>
+                <Route path="CarDetails" element={<CarDetailsManager></CarDetailsManager>}></Route>
                 <Route path="Lends" element={<SetLends></SetLends>}></Route>
                 <Route path="Model" element={<SetModel></SetModel>}>
                     <Route path="addModel" element={<AddModel></AddModel>}></Route>

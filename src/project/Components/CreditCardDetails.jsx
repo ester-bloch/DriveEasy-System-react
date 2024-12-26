@@ -56,15 +56,15 @@ export const CreditCardDetails2 = () => {
         }
     }
     return <>
-        <label htmlFor={'creditCard'}>creditCard:</label><br></br>
+        <label htmlFor={'creditCard'}>מספר כרטיס:</label><br></br>
         <input ref={creditCardRf} id={'creditCard'} type={'creditCard'} onChange={(e) => validCC(e)}></input>
         {errors.creditCard&&errors.creditCard !== '' && <p>{errors.creditCard}</p>}
         <br></br>
-        <label htmlFor={'Tz'}>מספר זהות:</label><br></br>
+        <label htmlFor={'Tz'}>מספר זהות של בעל הכרטיס:</label><br></br>
         <input ref={TzRf} id={'Tz'} type={'Tz'} onChange={(e) => validTz(e)}></input>
         {errors.Tz&&errors.Tz !== '' && <p>{errors.Tz}</p>}
         <br></br>
-        <label htmlFor={'passDay'}>passDay:</label><br></br>
+        <label htmlFor={'passDay'}>תוקף:</label><br></br>
         <input ref={passDayRf} id={'passDay'} type={'passDay'} onChange={(e) => validPd(e)}></input>
         {errors.passDay&&errors.passDay !== '' && <p>{errors.passDay}</p>}
         <br></br>

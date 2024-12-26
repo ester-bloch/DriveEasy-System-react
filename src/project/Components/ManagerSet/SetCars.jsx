@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Outlet, useNavigate } from "react-router"
 import { getCarsFromSql } from "./managerApi"
-import { setCarsFromServer } from "../../Data-Redux/action"
+import { setCarsFromServer, setCurrentCar } from "../../Data-Redux/action"
 import { Select } from "../Select"
 import { OneCar } from "../OneCar"
 
@@ -104,8 +104,9 @@ export const SetCars = () => {
             case "propulsion type": {
                 console.log(engineTypes);
                 cars.forEach(element => {
-                    console.log(engineTypes.find(cm => cm.key == element.engineTypeId + 1));
-                    if (engineTypes.find(cm => cm.key == element.engineTypeId).description == text) {
+                    // console.log(engineTypes.find(cm => cm.key == element.engineTypeId ));
+                    if (element.engineTypeId&&engineTypes.find(cm => cm.key == element.engineTypeId ).description == text) {
+                    // if(element.engineTypeDto.description==text){
                         x.push(element)
                     }
                 });
@@ -122,21 +123,22 @@ export const SetCars = () => {
                 break;
             }
         }
-        console.log(x);
+        // console.log(x);
         setCarsToShow([...x.filter(p => p.empty)])
-        console.log(carsToShow);
+        // console.log(carsToShow);
     }
 
     const managerFunc = () => {
         navigate("../Manager")
     }
 
-    
+    const onUpdate=(car)=>{
+        dispatch(setCurrentCar(car))
+        navigate("updataCar")
+    }
     return <>
         <br></br><br></br>
         <button onClick={() => {
-            console.log("showAddCar="+showAddCar%2);
-            
             setShowAddCar(showAddCar + 1)
             showAddCar%2==1?
             navigate(`addCar`):
@@ -156,7 +158,7 @@ export const SetCars = () => {
                     <br></br>
                     {/* //    const { engineTypeId, carModelId, numCar, passNum, carModel, numPlaces, pic, year, autoGir, engineType, pricePerHour, gasPerHour, LeftGas, city, street, empty } = props */}
 
-                    <OneCar numCar={p.id} id={p.id} passNum={p.passNum} carModelId={p.carModelId} engineTypeId={p.engineTypeId} carModel={p.carModelDto} numPlaces={p.numPlaces} pic={p.pic} year={p.year} autoGir={p.autoGir} engineType={p.engineTypeDto} pricePerHour={p.pricePerHour} gasPerHour={p.gasPerHour} LeftGas={p.leftGas} city={p.city} street={p.street} empty={p.empty}></OneCar>
+                    <OneCar numCar={p.id} onUpdate={onUpdate}availableUpdate={true} remove={true} id={p.id} passNum={p.passNum} carModelId={p.carModelId} engineTypeId={p.engineTypeId} carModel={p.carModelDto} numPlaces={p.numPlaces} pic={p.pic} year={p.year} autoGir={p.autoGir} engineType={p.engineTypeDto} pricePerHour={p.pricePerHour} gasPerHour={p.gasPerHour} LeftGas={p.leftGas} city={p.city} street={p.street} empty={p.empty}></OneCar>
                     {/* <OneCar  numCar={p.key} passNum={p.passNum} carModelId={p.carModelId} engineTypeId={p.engineTypeId} carModel={p.carModel} numPlaces={p.numPlaces} pic={p.pic} year={p.year} autoGir={p.autoGir} engineType={p.engineType} pricePerHour={p.pricePerHour} gasPerHour={p.gasPerHour} LeftGas={p.LeftGas} city={p.city} street={p.street} empty={p.empty}></OneCar> */}
                     <br></br>
                 </ >

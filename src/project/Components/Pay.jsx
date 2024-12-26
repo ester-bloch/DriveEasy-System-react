@@ -18,12 +18,13 @@ export const Pay = (sumToPay) => {
         }).then((result) => {
             if (result) {
                 console.log(result);
-                if (!result.isDismissed){
+                if (!result.isDismissed) {
                     Swal.fire('שילמת  בהצלחה', `קוד אישור הוא: ${Math.floor(Math.random() * 8888888)} קבלה נשלחה אלייך למייל`, 'success');
-                 navigate(`../../Cars`) }
-            }
-            else {
-                // setNewCCdetails(true)
+                    navigate(`../../Cars`)
+                }
+                else {
+                    setNewCCdetails(true)
+                }
 
             }
         }

@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { IsEmpty } from "./IsEmpty";
 import { useNavigate } from "react-router";
 import { setCurrentCar } from "../Data-Redux/action";
+import { removeCarFromSql } from "./ManagerSet/managerApi";
 
 //הצגת כל הרכבים. 
 //יש להציג פרטי דגם (חברה, מודל וסוג רכב) מס' מקומות,
@@ -22,7 +23,7 @@ import { setCurrentCar } from "../Data-Redux/action";
 //, תפוס באדום. יש
 //להציג סימון לסוג ההנעה
 export const OneCar = props => {
-    const { engineTypeId,id, carModelId, numCar, passNum, carModel, numPlaces, pic, year, autoGir, engineType, pricePerHour, gasPerHour, LeftGas, city, street, empty }=props
+    const { engineTypeId,id,onUpdate, availableUpdate,carModelId,remove, numCar, passNum, carModel, numPlaces, pic, year, autoGir, engineType, pricePerHour, gasPerHour, LeftGas, city, street, empty }=props
     
     const dispatch = useDispatch() 
     const navigate = useNavigate()
@@ -36,7 +37,17 @@ export const OneCar = props => {
     let s = empty == true ? 'green' : 'red'
     let thisCarType = CarTypes.find(o =>  o.key == thisCarModel.carType )
     //if(carModels.carType1=useSelector)thisCarType= CarTypes.find(ct => ct.key == carModels.carType)
-
+    const deleteCar=()=>{
+        removeCarFromSql(id).then(res=>{
+            console.log(res.data);
+            
+        }).catch(err=>{
+            console.log(err);
+        })
+    }
+    const updating=()=>{
+        onUpdate(props)
+    }
     return <>
         <span id="OneCar">
             <p>רכב מספר {numCar}</p>
@@ -58,6 +69,8 @@ export const OneCar = props => {
                 <br></br><label> מיקום: </label>
                 <label> {city},     {street}  </label>
                 <br></br><label>{engineTypeIcon}</label>
+                {remove&&<button className="smallButton" onClick={deleteCar}>להסרה</button>}
+                {availableUpdate&& <button className="smallButton" onClick={updating} >עדכון</button>}
                 <button className="smallButton" onClick={()=>{
                     dispatch(setCurrentCar(props))
                     navigate("../CarDetails")

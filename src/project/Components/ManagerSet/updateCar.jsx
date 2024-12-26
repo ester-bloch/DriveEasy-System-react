@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { Select } from "../Select"
-import { addCarToSql, getCarModelsFromSql, getEngineTypesFromSql } from "./managerApi"
+import { addCarToSql, getCarModelsFromSql, getEngineTypesFromSql, updateCarInSql } from "./managerApi"
 import { useNavigate } from "react-router"
+import { useSelector } from "react-redux"
 
-export const AddCar = () => {
+export const UpdateCar = () => {
+    const currentId=useSelector(e=>e.currentCar).id
     const navigate = useNavigate()
     const [newCar, setNewCar] = useState({})
 
@@ -94,8 +96,8 @@ export const AddCar = () => {
     }
 
     const send = () => {
-        console.log(newCar);
-        addCarToSql(newCar).then(res => {
+        // console.log(newCar);
+        updateCarInSql(currentId,newCar).then(res => {
             console.log("נכנסתי"); console.log(res);
         }).catch(err => {
             console.log(err);
@@ -106,7 +108,8 @@ export const AddCar = () => {
 
     return <>
         <div id="add">
-            <h2> add car: </h2>
+            <h2> :update car </h2>
+            <h4>car number {currentId}</h4>
             <input onChange={(e) => setNewCar({ ...newCar, "passNum": parseInt(e.target.value) })} placeholder="הכנס מספר רישוי "></input><br></br>
             <input onChange={(e) => setNewCar({ ...newCar, "numPlaces": parseInt(e.target.value) })} placeholder="הכנס מספר מקומות "></input><br></br>
             <input onChange={(e) => setNewCar({ ...newCar, "pic": e.target.value })} placeholder="הכנס שם תמונה "></input><br></br>
@@ -123,6 +126,7 @@ export const AddCar = () => {
                 <Select funcOnChng={funcOnChange2} list={engineTypes.map(i => i.description)} text={"engine type"}></Select><br></br><br></br>
             </div>
             <button onClick={send}>לשמירה</button>
+            <button onClick={()=>{navigate("../")}}>לחזרה</button>
 
         </div>
     </>

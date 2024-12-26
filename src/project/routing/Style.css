@@ -5,7 +5,9 @@ p {
     /* color: rgb(3, 129, 9); */
 }
 
-
+.marginRight{
+    margin-right:43.5% ;
+}
 
 #OneCar {
     margin: 20px;
@@ -49,7 +51,15 @@ img {
 
 }
 .IsEmpty{
+    width: 200px;
+    /* margin-right: 45%; */
+    justify-content: center;
+    align-items: center;
+
+}
+.center{
     width: 60px;
+    margin-right: 48%;
 }
 .white{
     color: #484849;

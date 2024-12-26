@@ -4,10 +4,13 @@ export const getCarsFromSql = () => {
     return axios.get(`${baseUrl}/Cars`)
 }
 export const removeCarFromSql = (id) => {
-    return axios.delete(`${baseUrl}/Cars${id}`)
+    //https://localhost:7204/api/Cars?id=120
+
+    return axios.delete(`${baseUrl}/Cars?id=${id}`)
 }
-export const updateCarInSql = (id) => {
-    return axios.put(`${baseUrl}/Cars/${id}`)
+export const updateCarInSql = (id,car) => {
+    //https://localhost:7204/api/Cars?id=785
+    return axios.put(`${baseUrl}/Cars?id=${id}`,car)
 }
 export const addCarToSql = (car) => {
     return axios.post(`${baseUrl}/Cars`,car)
@@ -35,4 +38,8 @@ export const updateLendInSql = (id) => {
 }
 export const getLendsFromSql = () => {
     return axios.get(`${baseUrl}/Lends`)
+}
+export const getReturnsFromSql = () => {
+    //https://localhost:7204/api/Returns
+    return axios.get(`${baseUrl}/Returns`)
 }

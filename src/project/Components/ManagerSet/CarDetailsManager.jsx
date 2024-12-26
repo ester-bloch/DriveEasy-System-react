@@ -1,10 +1,9 @@
 import { useSelector } from "react-redux"
 import { Outlet, useNavigate } from "react-router"
-import { IsEmpty } from "./IsEmpty"
+import { IsEmpty } from "../IsEmpty"
 import { useState } from "react"
-import { User } from "./User"
 
-export const CarDetails = () => {
+export const CarDetailsManager = () => {
     const navigate = useNavigate()
     let car = useSelector(s => s.currentCar)
     let currentUser = useSelector(s => s.currentUser)
@@ -31,7 +30,6 @@ export const CarDetails = () => {
     }
     return <>
         <>
-        <User></User><br></br>
             <span>
                 <div style={{ color: { s } }}>
                     <div className="forImg">
@@ -72,10 +70,10 @@ export const CarDetails = () => {
                 <br></br>
             </span>
         </>
-        <button onClick={() => { navigate("../Cars") }}> חזרה לגלריית הרכבים</button>
+        <button onClick={() => { navigate("../Cars") }}> חזרה לעדכון רכבים</button>
         <br></br>
-        {toLend==true&&currentUser.id&& <button onClick={() => {lend()  }}>השאלה</button>}
-        {toLend==false&&currentUser.id&& <button onClick={() => {ToReturn()  }}>החזרה</button>}
+        {/* {toLend==true&&currentUser.id&& <button onClick={() => {lend()  }}>השאלה</button>}
+        {toLend==false&&currentUser.id&& <button onClick={() => {ToReturn()  }}>החזרה</button>} */}
         <Outlet></Outlet>
     </>
 }

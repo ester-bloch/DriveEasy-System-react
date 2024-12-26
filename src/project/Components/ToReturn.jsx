@@ -27,7 +27,7 @@ export const ToReturn = props => {
                 "leftToPay": 0
             }
             AddReturnToSql(newReturn).then(data => {
-                document.getElementById("after").innerHTML = `הוחזר בהצלחה, מספר החזרה: ${data.data}`
+                // document.getElementById("after").innerHTML = `הוחזר בהצלחה, מספר החזרה: ${data.data}`
                 setPay(true)
                 firstTime = false;
             })

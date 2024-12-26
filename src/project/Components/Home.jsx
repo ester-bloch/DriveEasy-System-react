@@ -3,6 +3,7 @@ import { useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router"
 import swal from "sweetalert"
+import { User } from "./User"
 
 export const Home = () => {
     // const nameRef = useRef()
@@ -37,9 +38,10 @@ export const Home = () => {
         navigate("../Register")
     }
     return <>
-        <p>i am home</p>
+        <User></User><br></br>
+        <p>i am home, place of picture</p>
         <button onClick={login}>לכניסה</button>
-        <br></br><br></br>
+       
         <button onClick={register}>להרשמה</button>
         {/* <h2 ref={hRef}>Login:</h2>
         <label htmlFor='N'>Name:</label><br></br>

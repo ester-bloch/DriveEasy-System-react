@@ -3,7 +3,7 @@ export const Select = ({ref, funcOnChng, set,list, text }) => {
     // console.log(text);
 
     return <>
-        <h4>select {text}:</h4>
+        <h4>:select {text}</h4>
         <select ref={ref}onChange={(e) => {
             console.log(e.target.value)
             {set&&set(e.target.value)}
