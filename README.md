@@ -1,4 +1,4 @@
-# CarRental-Pro 🚗
+# DriveEasy-System-react 🚗
 
 Modern car rental management system built with React and Redux. A comprehensive platform for managing vehicle inventory, user authentication, booking system, and administrative operations.
 
