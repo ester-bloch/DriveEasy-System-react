@@ -141,7 +141,7 @@ export const SetCars = () => {
             showAddCar%2==1?
             navigate(`addCar`):
             navigate(``)
-        }}>הוספת רכב</button>
+        }}>ה רכב</button>
         <Outlet></Outlet>
         <br></br>
         <br></br>

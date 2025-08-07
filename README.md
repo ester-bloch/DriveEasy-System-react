@@ -2,10 +2,10 @@
 
 Modern car rental management system built with React and Redux. A comprehensive platform for managing vehicle inventory, user authentication, booking system, and administrative operations.
 
-![React](https://img.shields.io/badge/React-18.2.0-blue?logo=react)
-![Redux](https://img.shields.io/badge/Redux-Toolkit-purple?logo=redux)
-![Material-UI](https://img.shields.io/badge/Material--UI-Latest-blue?logo=material-ui)
-![License](https://img.shields.io/badge/License-MIT-green)
+[![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=flat-square&logo=react&logoColor=black)](https://reactjs.org/)
+[![Redux](https://img.shields.io/badge/Redux-Toolkit-764ABC?style=flat-square&logo=redux&logoColor=white)](https://redux-toolkit.js.org/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](https://opensource.org/licenses/MIT)
 
 ## 🎯 Project Overview
 
@@ -75,8 +75,8 @@ src/
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/[your-username]/CarRental-Pro.git
-cd CarRental-Pro
+git clone https://github.com/ester-bloch/DriveEasy-System-react.git
+cd DriveEasy-System-react
 ```
 
 2. **Install dependencies**
@@ -165,8 +165,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👥 Support
 
 For support and questions:
-- Create an [Issue](https://github.com/[your-username]/CarRental-Pro/issues)
-- Contact: [your-email@example.com]
+- Create an [Issue](https://github.com/ester-bloch/DriveEasy-System-react/issues)
+- Contact: [esterbloch846@gmail.com]
 
 ## 🙏 Acknowledgments
 
