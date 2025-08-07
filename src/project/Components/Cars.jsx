@@ -2,9 +2,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { User } from "./User"
 import { OneCar } from "./OneCar"
 import { useEffect, useRef, useState } from "react"
-import FolderList from "../OutsiderConps/List"
-import SwitchListSecondary from "../OutsiderConps/List1"
-import PinnedSubheaderList from "../OutsiderConps/List2"
 import { Select } from "./Select"
 import { setCarsFromServer } from "../Data-Redux/action"
 import { getCarsFromSql } from "../Data-Redux/api"
@@ -26,7 +23,7 @@ export const Cars = () => {
     const [cars, setCars] = useState()
     const [carsToShow, setCarsToShow] = useState()
     const filterList =
-    {//דגם (יש להציג חברה ומודל,) סוג הנעה, סוג רכב,עיר, מס' מקומות, .
+    {
         "company":
             ["tesla", "toyota", "mercedes", "mitzuvishi", "frary", "limuzine", "man"],
         "model":
@@ -43,7 +40,6 @@ export const Cars = () => {
     useEffect(() => {
         getCarsFromSql()
             .then(x => {
-                // x.data -  הנתונים שנשלפו - התגובה מהשרת
                 setCars(x.data)
                 setCarsToShow(x.data)
                 for (let i = 0; i < cars.length; i++) {
@@ -69,9 +65,10 @@ export const Cars = () => {
 
     const search = (text) => {
         let x = []
+        if ( !cars )return;
         switch (howTosearch) {
             case "town": {
-                cars.forEach(element => {
+                cars && cars.forEach(element => {
                     if (element.city == text) {
                         x.push(element)
                     }
@@ -102,7 +99,6 @@ export const Cars = () => {
                 });
                 break;
             }
-            //thisEngineType = engineTypes.find(p => p.key == engineTypeId).description
             case "propulsion type": {
                 cars.forEach(element => {
                     if (engineTypes.find(cm => cm.key == element.engineTypeId).description == text) {
@@ -137,10 +133,7 @@ export const Cars = () => {
             {carsToShow && carsToShow.map((p, i) =>
                 <>
                     <br></br>
-                    {/* //    const { engineTypeId, carModelId, numCar, passNum, carModel, numPlaces, pic, year, autoGir, engineType, pricePerHour, gasPerHour, LeftGas, city, street, empty } = props */}
-
                     <OneCar numCar={p.id} id={p.id} passNum={p.passNum} carModelId={p.carModelId} engineTypeId={p.engineTypeId} carModel={p.carModelDto} numPlaces={p.numPlaces} pic={p.pic} year={p.year} autoGir={p.autoGir} engineType={p.engineTypeDto} pricePerHour={p.pricePerHour} gasPerHour={p.gasPerHour} LeftGas={p.leftGas} city={p.city} street={p.street} empty={p.empty}></OneCar>
-                    {/* <OneCar  numCar={p.key} passNum={p.passNum} carModelId={p.carModelId} engineTypeId={p.engineTypeId} carModel={p.carModel} numPlaces={p.numPlaces} pic={p.pic} year={p.year} autoGir={p.autoGir} engineType={p.engineType} pricePerHour={p.pricePerHour} gasPerHour={p.gasPerHour} LeftGas={p.LeftGas} city={p.city} street={p.street} empty={p.empty}></OneCar> */}
                     <br></br>
                 </ >
             )}

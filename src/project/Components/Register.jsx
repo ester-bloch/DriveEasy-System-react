@@ -7,9 +7,6 @@ import swal from "sweetalert"
 
 export const Register = () => {
 
-    //משתנה שנפעיל עליו את הפונקציות של האקשנס
-    //הדיספץ' ישלח את הפונקציה לאויר והרדוסר יתפוס אותו ויפעיל את הפונקציה המתאימה
-    //const dispatch = useDispatch()
     const cvvRf = useRef()
     const creditCardRf = useRef()
     const passDayRf = useRef()
@@ -43,7 +40,6 @@ export const Register = () => {
         if (e.target.value.length === 0) {
             setErrors({ ...errors, email: 'שדה חובה!' })
         }
-        // else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(e.target.value)) {
         else if (e.target.value.length < 3) {
             setErrors({ ...errors, password: 'סיסמא קצרה מידי!' })
         }
@@ -123,7 +119,7 @@ export const Register = () => {
             errors.cell.length == 0 &&
             errors.id.length == 0 &&
             errors.firstname.length == 0) {
-            console.log("נכנסתי לשליחת משתמש לsql");
+            console.log("Sending user to SQL");
             AddUserToSql(user).then(result => {
                 console.log(JSON.stringify(result.data))
                 getThisUser(user["name"], user["password"]).
@@ -156,10 +152,6 @@ export const Register = () => {
 
 
     }
-    //        { key: 0, name: "Esty", id: 327789616, phoneNumber: "0583212846", password: 123456, 
-    //creditCard: 4580160117194037, ppassDay: "4575", cvv: "555", userType: 0 }
-
-
 
     return <>
         <form onSubmit={(e) => send(e)} className="white">

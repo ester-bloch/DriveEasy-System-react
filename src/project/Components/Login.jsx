@@ -12,8 +12,6 @@ export const Login = () => {
     const passRef = useRef()
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    // עבור שימוש בסטייט
-    //let users = useSelector(store => store.users)
 
     function Register() {
         navigate('../Register')
@@ -24,8 +22,6 @@ export const Login = () => {
             name: nameRef.current.value
             , password: passRef.current.value
         }
-        //עבור שימוש בסטייט
-        //let find = users.find(element => element.name == user.name && element.password == user.password)
         let find = getThisUser(user.name, user.password).
             then(find => {
                 if (find.data != null && find.data != undefined && find.data != "") {

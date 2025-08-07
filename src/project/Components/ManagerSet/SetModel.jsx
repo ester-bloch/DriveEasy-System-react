@@ -12,8 +12,7 @@ export const SetModel = () => {
     const [num, setNum] = useState([{}, {}])
     const [showAddModel, setShowAddModel] = useState(1)
     const navigate = useNavigate()
-    const filterList =
-    {//דגם (יש להציג חברה ומודל,) סוג הנעה, סוג רכב,עיר, מס' מקומות, .
+    const filterList = {
         "company":
             ["tesla", "toyota", "mercedes", "mitzuvishi", "frary", "limuzine", "man"],
         "model":

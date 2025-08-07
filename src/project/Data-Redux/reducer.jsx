@@ -4,24 +4,8 @@ import { InitialState } from './State';
 export const reducer = produce((state, action) => {
     switch (action.type) {
         case "LOGIN": {
-            console.log('LOGIN לרדיוסר נכנסתי ')
-            // let found = state.users.find(u => u.name == action.payload.name && u.password == action.payload.password)
-            // if (found != null) {
-            //     console.log(`isManager:${state.userTypes.find(t => t.key == found.userType).isManager}`);
-            //     state.isManager = state.userTypes
-            //         .find(t => t.key == found.userType)
-            //         .isManager
-            //     console.log(`from reducer: find.name:${found.name}`);
-            //     console.log(`from reducer: found.userType:${found.userType}`);
-            //     console.log(`from reducer: isManager:${state.isManager}`);
-            // }
-            // else {
-            //     console.log(`fron reducer: !!!!!found:${found}`);
-            //     state.currentUser = found
-            //     state.isManager = false
-            //     console.log(`fron reducer: !!!!!isManager:${state.isManager}`);
-
-            // }
+            console.log('LOGIN entered reducer')
+           
             state.currentUser =action.payload
             state.isManager=action.payload.userTypesId==1
 
@@ -60,7 +44,6 @@ export const reducer = produce((state, action) => {
         }
         case "SET_CURRENT_CAR":{
             state.currentCar =action. payload
-            // console.log(`from reducer2: isManager:${state.isManager}`);
             break;
         }
     

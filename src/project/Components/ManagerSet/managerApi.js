@@ -1,45 +1,41 @@
-import axios from "axios"
+import axiosInstance from "../../utils/axiosInterceptor"
 const baseUrl = `https://localhost:7204/api`
 export const getCarsFromSql = () => {
-    return axios.get(`${baseUrl}/Cars`)
+    return axiosInstance.get(`/Cars`)
 }
 export const removeCarFromSql = (id) => {
-    //https://localhost:7204/api/Cars?id=120
-
-    return axios.delete(`${baseUrl}/Cars?id=${id}`)
+    return axiosInstance.delete(`/Cars?id=${id}`)
 }
 export const updateCarInSql = (id,car) => {
-    //https://localhost:7204/api/Cars?id=785
-    return axios.put(`${baseUrl}/Cars?id=${id}`,car)
+    return axiosInstance.put(`/Cars?id=${id}`,car)
 }
 export const addCarToSql = (car) => {
-    return axios.post(`${baseUrl}/Cars`,car)
+    return axiosInstance.post(`/Cars`,car)
 }
 export const getEngineTypesFromSql = () => {
-    return axios.get(`${baseUrl}/EngineTypes`)
+    return axiosInstance.get(`/EngineTypes`)
 }
-//https://localhost:7204/api/EngineTypes?id=1
+
 export const updateEngineTypesInSql = (id,newEngine) => {
-    return axios.put(`${baseUrl}/EngineTypes?id=${id}`,newEngine)
+    return axiosInstance.put(`/EngineTypes?id=${id}`,newEngine)
 }
 
 export const getCarModelsFromSql = () => {
-    return axios.get(`${baseUrl}/CarModels`)
+    return axiosInstance.get(`/CarModels`)
 }
 export const getCarTypesFromSql = () => {
-    return axios.get(`${baseUrl}/CarTypes`)
+    return axiosInstance.get(`/CarTypes`)
 
 }
 export const addCarModelToSql = (carModel) => {
-    return axios.post(`${baseUrl}/CarModels`,carModel)
+    return axiosInstance.post(`/CarModels`,carModel)
 }
 export const updateLendInSql = (id) => {
-    return axios.put(`${baseUrl}/Lends/${id}`)
+    return axiosInstance.put(`/Lends/${id}`)
 }
 export const getLendsFromSql = () => {
-    return axios.get(`${baseUrl}/Lends`)
+    return axiosInstance.get(`/Lends`)
 }
 export const getReturnsFromSql = () => {
-    //https://localhost:7204/api/Returns
-    return axios.get(`${baseUrl}/Returns`)
+    return axiosInstance.get(`/Returns`)
 }

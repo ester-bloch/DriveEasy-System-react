@@ -15,6 +15,7 @@ import { AddCar } from "../Components/ManagerSet/AddCar"
 import { AddModel } from "../Components/ManagerSet/AddModel"
 import { UpdateCar } from "../Components/ManagerSet/updateCar"
 import { CarDetailsManager } from "../Components/ManagerSet/CarDetailsManager"
+import { TestInterceptor } from "../Components/TestInterceptor"
 export const Routing = () => {
     return <>
         <Routes>
@@ -38,6 +39,7 @@ export const Routing = () => {
                 <Route path="Engine" element={<SetEngineType></SetEngineType>}></Route>
             </Route>
             <Route path="Home" element={<Home></Home>}></Route>
+            <Route path="test" element={<TestInterceptor></TestInterceptor>}></Route>
             <Route path="" element={<Home></Home>}></Route>
         </Routes>
     </>

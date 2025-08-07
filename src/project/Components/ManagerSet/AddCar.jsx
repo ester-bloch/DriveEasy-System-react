@@ -96,7 +96,7 @@ export const AddCar = () => {
     const send = () => {
         console.log(newCar);
         addCarToSql(newCar).then(res => {
-            console.log("נכנסתי"); console.log(res);
+            console.log("Entered"); console.log(res);
         }).catch(err => {
             console.log(err);
         })

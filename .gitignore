@@ -5,7 +5,14 @@
 /.pnp
 .pnp.js
 
+# Learning materials and examples (keeping only the main project)
 /src/Lessons
+/src/homeworkEsti
+/src/blessing-cardsאילה ננקנסקי
+/src/Homeworks
+/src/PrivateLesson
+/src/src
+
 # testing
 /coverage
 
@@ -22,3 +29,26 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Unused car images and Hebrew named assets
+/public/images/אוטו*.png
+/public/images/אוטו*.jpg
+/public/images/בימבה*.png
+/public/images/לימוזינה*.png
+/public/images/מכונית*.png
+/public/images/רכב*.png
+/public/images/מיניבוסים*.png
+/public/images/מנהל*.png
+/public/images/סטישן*.png
+/public/images/אופנוע.png
+/public/images/וון.png
+/public/images/גיפ.png
+/public/images/טנדר*.png
+/public/images/עוד*.png
+/public/images/פרטי.png
+/public/images/רקע.*
+/public/images/אטו*.png
+/public/images/חשמלי*.png
+/public/images/חשמלי*.jpg
+/public/images/כניסה.png
+/public/images/מהמם.*

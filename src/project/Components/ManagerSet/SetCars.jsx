@@ -20,8 +20,7 @@ export const SetCars = () => {
     const [showSelect2, setShowSelect2] = useState(false)
     const [cars, setCars] = useState()
     const [carsToShow, setCarsToShow] = useState()
-    const filterList =
-    {//דגם (יש להציג חברה ומודל,) סוג הנעה, סוג רכב,עיר, מס' מקומות, .
+    const filterList = {
         "company":
             ["tesla", "toyota", "mercedes", "mitzuvishi", "frary", "limuzine", "man"],
         "model":
@@ -38,7 +37,6 @@ export const SetCars = () => {
     useEffect(() => {
         getCarsFromSql()
             .then(x => {
-                // x.data -  הנתונים שנשלפו - התגובה מהשרת
                 setCars(x.data)
                 setCarsToShow(x.data)
                 for (let i = 0; i < cars.length; i++) {
